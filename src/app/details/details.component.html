@@ -1,24 +1,29 @@
 <div class="fixed-top">
   <nav class="navbar">
-    <a class="navbar-brand" href="#">Sunwell Item Level</a>
+    <a class="navbar-brand" href="#"><span class="fa fa-arrow-left" style="font-size: 12pt; margin: 20px"></span><b>Sunwell Item Level</b></a>
     <div class="flex-column"></div>
 
-    <form class="form-inline">
+  <!--  <form class="form-inline">
       <div class="input-group input-group">
         <input type="text" id="inputName" #name placeholder="Character name..." class="form-control">
         <button (click)="character = null; onSearch(name.value);" class="btn">
           <span class="fa fa-search"></span></button>
       </div>
-    </form>
+    </form>-->
   </nav>
   <div *ngIf="isRefreshing" id="progress-bar" class="progress">
     <div class="indeterminate"></div>
   </div>
 </div>
 
-<main *ngIf="character" role="main" class="container-fluid" style="padding-top: 120px">
+<main role="main" class="container text-center" >
 
-  <div class="starter-template">
+  <div class="text-center-info container"><h5>Informacja</h5>
+    Jeżeli postać nie wczytuje się w ciągu 2-3 sekund to jej danych nie ma w lokalnej bazie i muszą zostać pobrane ze strony Sunwella. Pobieranie trwa do 20 sekund. Postacie aktualizowane są maksymalnie raz na 24 godziny aby nie obciążać serwera.
+  </div>
+
+  <div *ngIf="character" class="container center">
+    <div class="char-header">
     <h1>{{character.name}}</h1>
 
     <h2 *ngIf="character.info.includes('Druid')" class="druid">{{character.info}}</h2>
@@ -33,7 +38,8 @@
     <h2 *ngIf="character.info.includes('Priest')" class="priest">{{character.info}}</h2>
 
     <h5 style="margin-top: 24px">Item Level: {{character.itemLevel}}</h5>
-    <table >
+    </div>
+    <table style="margin: auto">
 
       <tbody *ngFor="let item of character?.items">
 
@@ -57,8 +63,7 @@
       </tbody>
     </table>
   </div>
-
-
+  <div style="padding-top: 100px"></div>
 </main>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
