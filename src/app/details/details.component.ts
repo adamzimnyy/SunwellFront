@@ -26,7 +26,8 @@ export class DetailsComponent implements OnInit {
   }
 
   getCharacter(name: string) {
-    this.getCharacterObservable(name).subscribe(value => {this.character = value; this.isRefreshing = false});
+   let nameCase = name.charAt(0).toUpperCase()+name.slice(1).toLowerCase();
+    this.getCharacterObservable(nameCase).subscribe(value => {this.character = value; this.isRefreshing = false});
   }
 
   onSearch(name: string) {
