@@ -18,10 +18,6 @@
 
 <main role="main" class="container text-center" >
 
-  <div class="text-center-info container"><h5>Informacja</h5>
-    Jeżeli postać nie wczytuje się w ciągu 2-3 sekund to jej danych nie ma w lokalnej bazie i muszą zostać pobrane ze strony Sunwella. Pobieranie trwa do 20 sekund. Postacie aktualizowane są maksymalnie raz na 24 godziny aby nie obciążać serwera.
-  </div>
-
   <div *ngIf="character" class="container center">
     <div class="char-header">
     <h1>{{character.name}}</h1>
@@ -63,8 +59,16 @@
       </tbody>
     </table>
   </div>
+
+  <div class="text-center-info container"><h5>Informacja</h5>
+    Jeżeli postać nie wczytuje się w ciągu 2-3 sekund to jej danych nie ma w lokalnej bazie i muszą zostać pobrane ze strony Sunwella. Pobieranie trwa do 20 sekund. Postacie aktualizowane są maksymalnie raz na 24 godziny aby nie obciążać serwera.
+  </div>
+
   <div style="padding-top: 100px"></div>
+
 </main>
+
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
