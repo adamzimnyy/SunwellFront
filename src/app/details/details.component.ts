@@ -31,8 +31,8 @@ export class DetailsComponent implements OnInit {
 
   onSearch(name: string) {
     this.isRefreshing = true;
-    this.getCharacter(name)
-  //  this.router.navigate(['/character', name.charAt(0).toUpperCase() + name.toLowerCase().slice(1)])
+  //  this.getCharacter(name)
+    this.router.navigate(['/character', name.charAt(0).toUpperCase() + name.toLowerCase().slice(1)])
   }
 
   ngOnInit() {
