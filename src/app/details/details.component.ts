@@ -15,7 +15,7 @@ export class DetailsComponent implements OnInit {
   isRefreshing: boolean;
   characterObs: Observable<Character>;
   character: Character;
-  readonly ROOT_URL = 'http://localhost:8080';
+  readonly ROOT_URL = 'https://sunwell-items.herokuapp.com';
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
   }
