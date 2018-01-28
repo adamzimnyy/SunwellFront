@@ -1,0 +1,153 @@
+{
+  "name": "Rdudu",
+  "items": [
+    {
+      "id": 48211,
+      "name": "Malfurion's Headguard of Triumph",
+      "itemLevel": 245,
+      "heroic": false,
+      "quality": 4,
+      "slot": "Head"
+    },
+    {
+      "id": 47915,
+      "name": "Collar of Ceaseless Torment",
+      "itemLevel": 245,
+      "heroic": true,
+      "quality": 4,
+      "slot": "Neck"
+    },
+    {
+      "id": 48208,
+      "name": "Malfurion's Shoulderpads of Triumph",
+      "itemLevel": 245,
+      "heroic": false,
+      "quality": 4,
+      "slot": "Shoulder"
+    },
+    {
+      "id": 45224,
+      "name": "Drape of the Lithe",
+      "itemLevel": 226,
+      "heroic": false,
+      "quality": 4,
+      "slot": "Back"
+    },
+    {
+      "id": 47004,
+      "name": "Cuirass of Calamitous Fate",
+      "itemLevel": 258,
+      "heroic": true,
+      "quality": 4,
+      "slot": "Chest"
+    },
+    {
+      "id": 47581,
+      "name": "Bracers of Swift Death",
+      "itemLevel": 245,
+      "heroic": false,
+      "quality": 4,
+      "slot": "Wrist"
+    },
+    {
+      "id": 47945,
+      "name": "Gloves of the Silver Assassin",
+      "itemLevel": 245,
+      "heroic": true,
+      "quality": 4,
+      "slot": "Hands"
+    },
+    {
+      "id": 47107,
+      "name": "Belt of the Merciless Killer",
+      "itemLevel": 245,
+      "heroic": false,
+      "quality": 4,
+      "slot": "Waist"
+    },
+    {
+      "id": 46975,
+      "name": "Leggings of the Broken Beast",
+      "itemLevel": 258,
+      "heroic": true,
+      "quality": 4,
+      "slot": "Legs"
+    },
+    {
+      "id": 45564,
+      "name": "Footpads of Silence",
+      "itemLevel": 226,
+      "heroic": false,
+      "quality": 4,
+      "slot": "Feet"
+    },
+    {
+      "id": 47934,
+      "name": "Planestalker Signet",
+      "itemLevel": 245,
+      "heroic": true,
+      "quality": 4,
+      "slot": "Finger"
+    },
+    {
+      "id": 47075,
+      "name": "Ring of Callous Aggression",
+      "itemLevel": 258,
+      "heroic": true,
+      "quality": 4,
+      "slot": "Finger"
+    },
+    {
+      "id": 50198,
+      "name": "Needle-Encrusted Scorpion",
+      "itemLevel": 232,
+      "heroic": false,
+      "quality": 4,
+      "slot": "Trinket"
+    },
+    {
+      "id": 47131,
+      "name": "Death's Verdict",
+      "itemLevel": 258,
+      "heroic": true,
+      "quality": 4,
+      "slot": "Trinket"
+    },
+    {
+      "id": 47130,
+      "name": "Lupine Longstaff",
+      "itemLevel": 258,
+      "heroic": true,
+      "quality": 4,
+      "slot": "Two-Hand"
+    },
+    {
+      "id": 47668,
+      "name": "Idol of Mutilation",
+      "itemLevel": 245,
+      "heroic": false,
+      "quality": 4,
+      "slot": "Relic"
+    }
+  ],
+  "itemIds": [
+    48211,
+    47915,
+    48208,
+    45224,
+    47004,
+    47581,
+    47945,
+    47107,
+    46975,
+    45564,
+    47934,
+    47075,
+    50198,
+    47131,
+    47130,
+    47668
+  ],
+  "itemLevel": 245.875,
+  "info": "80 Night Elf Druid"
+}

@@ -1,0 +1,67 @@
+<div class="fixed-top">
+  <nav class="navbar">
+    <a class="navbar-brand" href="#">Sunwell Item Level</a>
+    <div class="flex-column"></div>
+
+    <form class="form-inline">
+      <div class="input-group input-group">
+        <input type="text" id="inputName" #name placeholder="Character name..." class="form-control">
+        <button (click)="character = null; onSearch(name.value);" class="btn">
+          <span class="fa fa-search"></span></button>
+      </div>
+    </form>
+  </nav>
+  <div *ngIf="isRefreshing" id="progress-bar" class="progress">
+    <div class="indeterminate"></div>
+  </div>
+</div>
+
+<main *ngIf="character" role="main" class="container-fluid" style="padding-top: 120px">
+
+  <div class="starter-template">
+    <h1>{{character.name}}</h1>
+
+    <h2 *ngIf="character.info.includes('Druid')" class="druid">{{character.info}}</h2>
+    <h2 *ngIf="character.info.includes('Huntera')" class="hunter">{{character.info}}</h2>
+    <h2 *ngIf="character.info.includes('Warlock')" class="warlock">{{character.info}}</h2>
+    <h2 *ngIf="character.info.includes('Death Knight')" class="death-knight">{{character.info}}</h2>
+    <h2 *ngIf="character.info.includes('Paladin')" class="paladin">{{character.info}}</h2>
+    <h2 *ngIf="character.info.includes('Warrior')" class="warrior">{{character.info}}</h2>
+    <h2 *ngIf="character.info.includes('Mage')" class="mage">{{character.info}}</h2>
+    <h2 *ngIf="character.info.includes('Shaman')" class="shaman">{{character.info}}</h2>
+    <h2 *ngIf="character.info.includes('Rogue')" class="rogue">{{character.info}}</h2>
+    <h2 *ngIf="character.info.includes('Priest')" class="priest">{{character.info}}</h2>
+
+    <h5 style="margin-top: 24px">Item Level: {{character.itemLevel}}</h5>
+    <table >
+
+      <tbody *ngFor="let item of character?.items">
+
+      <tr>
+        <td><img class="cardimage" *ngIf="item.icon" src="https://db.darkwizard.pl/static/images/wow/icons/large/{{item.icon}}.jpg"/></td>
+        <td class="card">
+          <div  ngSwitch="{{item.quality}}">
+            <a href="http://db.darkwizard.pl?item={{item.id}}" *ngSwitchCase="0" class="poor">{{item.name}}</a>
+            <a href="http://db.darkwizard.pl?item={{item.id}}" *ngSwitchCase="1" class="common">{{item.name}}</a>
+            <a href="http://db.darkwizard.pl?item={{item.id}}" *ngSwitchCase="2" class="uncommon">{{item.name}}</a>
+            <a href="http://db.darkwizard.pl?item={{item.id}}" *ngSwitchCase="3" class="rare">{{item.name}}</a>
+            <a href="http://db.darkwizard.pl?item={{item.id}}" *ngSwitchCase="4" class="epic">{{item.name}}</a>
+            <a href="http://db.darkwizard.pl?item={{item.id}}" *ngSwitchCase="5" class="legendary">{{item.name}}</a>
+            <a href="http://db.darkwizard.pl?item={{item.id}}" *ngSwitchCase="7" class="heirloom">{{item.name}}</a>
+          </div>
+          <span *ngIf="item.heroic" class="heroic">Heroic<br></span>
+
+          <span>{{item.slot}}</span>
+          <span>Item Level {{item.itemLevel}}</span>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
