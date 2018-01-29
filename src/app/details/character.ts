@@ -5,4 +5,5 @@ export interface Character {
   itemIds: number[];
   itemLevel: number;
   info: string;
+  gearscore: number;
 }
