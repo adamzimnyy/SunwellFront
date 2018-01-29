@@ -33,8 +33,9 @@
     <h2 *ngIf="character.info.includes('Rogue')" class="rogue">{{character.info}}</h2>
     <h2 *ngIf="character.info.includes('Priest')" class="priest">{{character.info}}</h2>
 
-      <h5 style="margin-top: 24px">Item Level: {{character.itemLevel}}</h5>
-      <h5 style="margin: 24px">Gearscore: {{character.gearscore}}</h5>
+
+      <h3 style="margin-top: 24px"><span style="color: #7c7c7c">Gearscore: </span>{{character.gearscore}}</h3>
+      <h5 ><span style="color: #7c7c7c">Item Level: </span>{{character.itemLevel}}</h5>
     </div>
     <table style="margin: auto">
 
