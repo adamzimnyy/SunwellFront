@@ -1,7 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
-import {Observable} from "rxjs/Observable";
-import {Online} from "./online";
 import "rxjs/add/operator/map";
 import {Chart} from "chart.js";
 
@@ -14,7 +12,7 @@ import {HttpClient} from "@angular/common/http";
 export class SearchComponent implements OnInit {
 
   readonly ROOT_URL = 'https://sunwell-back.herokuapp.com/online';
-realm: string;
+  realm: string;
   onlineObs: any;
   chart: any;
 
@@ -29,79 +27,127 @@ realm: string;
 
   ngOnInit() {
     this.getOnline().subscribe(res => {
-      let feronis = res.map(response => response.feronis)
-      let angrathar = res.map(response => response.angrathar)
-      let total = res.map(response => response.angrathar + response.feronis)
-      let dates = res.map(response => response.date)
+      let feronisData = res.map(response => response.feronis)
+      let angratharData = res.map(response => response.angrathar)
+      let totalData = res.map(response => response.angrathar + response.feronis)
+      let datesData = res.map(response => new Date(response.date))
+      console.log(totalData);
+      let formattedDates = [];
+      datesData.forEach((res) => {
+        let date = res.toLocaleTimeString('en-GB', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+        formattedDates.push(date)
+      });
+
+      let data = {
+        labels: formattedDates,
+        datasets: [{
+          label: 'Feronis',
+          data: feronisData,
+          borderColor: '#5ba2df',
+          borderWidth: 3,
+          backgroundColor: 'rgba(0, 0, 0,0)',
+        }, {
+          label: 'Angrathar',
+          data: angratharData,
+          borderColor: '#e2ac00',
+          borderWidth: 3,
+          backgroundColor: 'rgba(0, 0, 0,0)',
+        }, {
+          label: 'Total',
+          data: totalData,
+          borderColor: '#59b110',
+          borderWidth: 3,
+          backgroundColor: 'rgba(0, 0, 0,0)',
+        },]
+      };
+
+      Chart.Tooltip.positioners.custom = function(elements, position) {
+        if (!elements.length) {
+          return false;
+        }
+        let offset = 0;
+        //adjust the offset left or right depending on the event position
+        if (elements[0]._chart.width / 2 > position.x) {
+          offset = 20;
+        } else {
+          offset = -20;
+        }
+        return {
+          x: position.x + offset,
+          y: elements[0]._chart.height-50,//position.y
+        }
+      };
+
+      let options = {
+        elements: {
+          point: {
+            radius: 0,
+            hoverRadius: 5,
+          }
+        },
+        hover: {
+          mode: 'index',
+          intersect: false
+        },
+        maintainAspectRatio: false,
+        responsive: true,
+        tooltips: {
+          enabled: true,
+          mode: 'index',
+          backgroundColor: 'rgba(1,1,1,1)',
+          intersect: false,
+          yAlign: 'right',
+          position: 'custom',
+        },
+        legend: {
+          display: true,
+          labels: {
+            usePointStyle: true,
+          },
+          position: 'top',
+          padding: 20,
+        },
+        scales: {
+          xAxes: [{
+            display: true,
+            ticks: { padding: 80,
+              callback: function (value, index, values) {
+                return '';
+              }
+            },
+            gridLines: {
+              drawOnChartArea: false,
+            }
+          }],
+          yAxes: [{
+            display: true,
+            ticks: {
+              min: 0,
+              beginAtZero: true,
+              padding: 5,
+            },
+            gridLines: {
+              color: "#444444",
+
+              drawOnChartArea: true,
+            }
+          }]
+        }
+      };
+
 
       this.chart = new Chart('canvas', {
         type: 'line',
-
-        data: {
-          labels: dates,
-          datasets: [{
-            label: 'Feronis',
-            data: feronis,
-            borderColor: '#5ba2df',
-            borderWidth: 3,
-            backgroundColor: 'rgba(0, 0, 0,0)',
-          }, {
-            label: 'Angrathar',
-            data: angrathar,
-            borderColor: '#e2ac00',
-            borderWidth: 3,
-            backgroundColor: 'rgba(0, 0, 0,0)',
-          }, {
-            label: 'Total',
-            data: total,
-            borderColor: '#59b110',
-            borderWidth: 3,
-            backgroundColor: 'rgba(0, 0, 0,0)',
-          },]
-        },
-        options: {
-          elements: {point: {radius: 0}},
-          maintainAspectRatio: false,
-          responsive: true,
-          tooltips: {
-            enabled: false,
-            mode: 'index',
-            intersect: false,
-          },
-          legend: {
-            display: true,
-            labels: {
-              usePointStyle: true,
-            },
-            position: 'top',
-          },
-          scales: {
-            xAxes: [{
-              display: true,
-              ticks: {
-                callback: function (value, index, values) {
-                  return '';
-                }
-              },
-              gridLines: {
-                drawOnChartArea: false,
-              }
-            }],
-            yAxes: [{
-              display: true,
-              color: "#00c03c",
-              gridLines: {
-                color: "#444444",
-                ticks: {
-                  min: 0,
-                  stepSize: 100,
-                  beginAtZero: true
-                },
-                drawOnChartArea: true,
-              }
-            }]
-          }
-        }
+        responsive: true,
+        data: data,
+        options: options
       })
     })
   }
