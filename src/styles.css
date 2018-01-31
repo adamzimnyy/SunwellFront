@@ -81,11 +81,17 @@ body {
   border-color: #d65e0b;
 }
 
-.form-control{
+/*.form-control{
   -webkit-border-radius: 8px 0 0 8px;
   -moz-border-radius:  8px 0 0 8px;
   border-radius:  8px 0 0 8px;
+}*/
+
+.form-control{
+  -moz-border-radius:  5px 0 0 5px;
+  border-radius:  5px 0 0 5px;
 }
+
 
 .navbar{
   background-color: #252525;

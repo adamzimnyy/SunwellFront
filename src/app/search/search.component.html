@@ -9,10 +9,10 @@
 
 <h1 style="align-content: center" align="center">Gearscore</h1>
   <div style="width: 100%; align-items: center; margin: auto" class="container">
-    <form class="form-inline">
-    <input style="border-color: white; max-width: 300px" autofocus type="text" #name placeholder="Name..."
+    <form autocomplete="on" class="form-inline">
+    <input style="border-color: white; max-width: 300px" name="name" autofocus type="text" #name placeholder="Name..."
            class="form-control">
-    <div class=" btn-group btn-group-toggle" #realmGroup data-toggle="buttons">
+    <div class=" btn-group btn-group-toggle" data-toggle="buttons">
       <label class="btn  btn-toggle active">
         <input type="radio" ngModel="realm" name="realm" value="Feronis" autocomplete="off" checked> Feronis
       </label>
