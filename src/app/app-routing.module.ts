@@ -6,7 +6,7 @@ import {DetailsComponent} from './details/details.component';
 
 const routes: Routes = [
   { path: '', component: SearchComponent},
-  { path: 'character/:name', component: DetailsComponent}
+  { path: 'character/:realm/:name', component: DetailsComponent}
 ];
 
 @NgModule({

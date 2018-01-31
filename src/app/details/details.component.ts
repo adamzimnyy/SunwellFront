@@ -15,30 +15,26 @@ export class DetailsComponent implements OnInit {
   isRefreshing: boolean;
   characterObs: Observable<Character>;
   character: Character;
-  readonly ROOT_URL = 'https://sunwell-back.herokuapp.com/character/Feronis';
+  readonly ROOT_URL = 'https://sunwell-back.herokuapp.com/character';
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
   }
 
-  getCharacterObservable(name: string): Observable<Character> {
-    this.characterObs = this.http.get<Character>(this.ROOT_URL+"/"+name);
+  getCharacterObservable(name: string,realm: string): Observable<Character> {
+    this.characterObs = this.http.get<Character>(this.ROOT_URL+"/"+realm+"/"+name);
     return this.characterObs;
   }
 
-  getCharacter(name: string) {
-   let nameCase = name.charAt(0).toUpperCase()+name.slice(1).toLowerCase();
-    this.getCharacterObservable(nameCase).subscribe(value => {this.character = value; this.isRefreshing = false});
-  }
-
-  onSearch(name: string) {
-    this.isRefreshing = true;
-  //  this.getCharacter(name)
-    this.router.navigate(['/character', name.charAt(0).toUpperCase() + name.toLowerCase().slice(1)])
+  getCharacter(name: string,realm: string) {
+    let nameCase = name.charAt(0).toUpperCase()+name.slice(1).toLowerCase();
+    let realmCase = realm.charAt(0).toUpperCase()+realm.slice(1).toLowerCase();
+    this.getCharacterObservable(nameCase,realmCase).subscribe(value => {this.character = value; this.isRefreshing = false});
   }
 
   ngOnInit() {
     this.isRefreshing = true;
     let name = this.route.snapshot.paramMap.get('name');
-    this.getCharacter(name);
+    let realm = this.route.snapshot.paramMap.get('realm');
+    this.getCharacter(name,realm);
   }
 }

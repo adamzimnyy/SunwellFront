@@ -2,7 +2,7 @@
 export interface Online {
 
   id: number;
-  ferpnis: number;
+  feronis: number;
   angrathar: number;
   date: Date;
 }

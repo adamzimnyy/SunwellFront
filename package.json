@@ -26,6 +26,8 @@
     "@angular/router": "^5.2.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0",
     "bootstrap": "^4.0.0-beta.3",
+    "bootstrap-select": "^1.12.4",
+    "chart.js": "^2.7.1",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
     "rxjs": "^5.5.6",

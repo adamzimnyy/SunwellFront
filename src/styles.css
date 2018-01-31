@@ -20,7 +20,7 @@ a:hover {
 
 #page-wrap {
   width: 800px;
-  margin: 0 auto;
+  margin: 0;
 }
 /*
  * Base structure
@@ -45,10 +45,10 @@ body {
 }
 
 .container {
-  max-width: 42em;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: auto;
 }
 
 .cover {
@@ -60,6 +60,31 @@ body {
   border-radius: 0 8px 8px 0;
   width: 48px;
   color: white;
+}
+.btn.focus, .btn.active.focus, .btn.active.focus {
+   outline: 0 none;
+ }
+
+.btn-toggle{
+  background-color: #fff;
+  border-radius: 0;
+  color: #333;
+  text-shadow: none;
+  box-shadow: none;
+  border-color: white;
+}
+
+.btn-toggle.active{
+  background-color: #d65e0b;
+  color: white;
+
+  border-color: #d65e0b;
+}
+
+.form-control{
+  -webkit-border-radius: 8px 0 0 8px;
+  -moz-border-radius:  8px 0 0 8px;
+  border-radius:  8px 0 0 8px;
 }
 
 .navbar{
