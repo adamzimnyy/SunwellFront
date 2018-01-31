@@ -68,7 +68,7 @@ export class SearchComponent implements OnInit {
         },]
       };
 
-      Chart.Tooltip.positioners.custom = function(elements, position) {
+      Chart.Tooltip.positioners.custom = function (elements, position) {
         if (!elements.length) {
           return false;
         }
@@ -81,7 +81,7 @@ export class SearchComponent implements OnInit {
         }
         return {
           x: position.x + offset,
-          y: elements[0]._chart.height-50,//position.y
+          y: elements[0]._chart.height - 50,//position.y
         }
       };
 
@@ -116,11 +116,22 @@ export class SearchComponent implements OnInit {
         },
         scales: {
           xAxes: [{
-            display: true,
-            ticks: { padding: 80,
-              callback: function (value, index, values) {
-                return '';
+            type: 'time',
+            time: {
+              displayFormats: {
+                'minute': 'HH:mm',
+                'hour': 'HH:mm',
+                'day': 'dddd',
+                'week': 'MMM DD',
+                'month': 'MMM DD',
               }
+            },
+            display: true,
+            ticks: {
+              margin: 80,
+            /*  callback: function (value, index, values) {
+                return '';
+              }*/
             },
             gridLines: {
               drawOnChartArea: false,
