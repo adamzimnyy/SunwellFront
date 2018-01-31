@@ -45,9 +45,13 @@ export class SearchComponent implements OnInit {
         formattedDates.push(date)
       });
 
+      let colors = ['#5ba2df', '#e2ac00', '#59b110'
+      ];
+
       let data = {
         labels: formattedDates,
         datasets: [{
+          pointStyle: 'circle',
           label: 'Feronis',
           data: feronisData,
           borderColor: '#5ba2df',
@@ -72,20 +76,21 @@ export class SearchComponent implements OnInit {
         if (!elements.length) {
           return false;
         }
-        let offset = 0;
-        //adjust the offset left or right depending on the event position
-        if (elements[0]._chart.width / 2 > position.x) {
-          offset = 20;
-        } else {
-          offset = -20;
-        }
         return {
-          x: position.x + offset,
-          y: elements[0]._chart.height - 50,//position.y
+          x: position.x,
+          y: elements[0]._chart.height - 40,
         }
       };
 
       let options = {
+        layout: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 80
+          }
+        },
         elements: {
           point: {
             radius: 0,
@@ -101,10 +106,18 @@ export class SearchComponent implements OnInit {
         tooltips: {
           enabled: true,
           mode: 'index',
-          backgroundColor: 'rgba(1,1,1,1)',
+          backgroundColor: 'rgba(1,1,1,0)',
           intersect: false,
           yAlign: 'right',
           position: 'custom',
+          callbacks: {
+            labelColor: function (tooltipItem, chart) {
+              return {
+                borderColor: colors[tooltipItem.datasetIndex],
+                backgroundColor: colors[tooltipItem.datasetIndex],
+              }
+            },
+          },
         },
         legend: {
           display: true,
@@ -128,10 +141,9 @@ export class SearchComponent implements OnInit {
             },
             display: true,
             ticks: {
-              margin: 80,
-            /*  callback: function (value, index, values) {
-                return '';
-              }*/
+              /*  callback: function (value, index, values) {
+               return '';
+               }*/
             },
             gridLines: {
               drawOnChartArea: false,
