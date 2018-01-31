@@ -14,9 +14,9 @@ import {HttpClient} from "@angular/common/http";
 export class SearchComponent implements OnInit {
 
   readonly ROOT_URL = 'https://sunwell-back.herokuapp.com/online';
-
+realm: string;
   onlineObs: any;
-  chart: [];
+  chart: any;
 
   constructor(private http: HttpClient, private router: Router) {
   }
