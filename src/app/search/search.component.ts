@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  onSearch(name, realm) {
+  onSearch(name) {
     let nameCase = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
     this.router.navigate(['/character', this.realm, nameCase])
   }
