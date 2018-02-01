@@ -1,34 +1,18 @@
-
-
-
-
 <div style="margin-top: 20vh"></div>
 
 
-
-
 <h1 style="align-content: center" align="center">Gearscore</h1>
-  <div style="width: 100%; align-items: center; margin: auto" class="container">
-    <form autocomplete="on" class="form-inline">
-    <input style="border-color: white; max-width: 300px" name="name" autofocus type="text" #name placeholder="Name..."
-           class="form-control">
-    <div class=" btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn  btn-toggle active">
-        <input type="radio" ngModel="realm" name="realm" value="Feronis" autocomplete="off" checked> Feronis
-      </label>
-      <label class="btn  btn-toggle">
-        <input type="radio" ngModel="realm" name="realm" value="Angrathar" autocomplete="off"> Angrathar </label>
-    </div>
-    <button (click)="onSearch(name.value,'Feronis')" class="btn btn-search">
-      <span class="fa fa-search"></span></button></form>
-  </div>
-
-
-
-
+<div style="width: 100%;align-items: center;margin:auto" class="container">
+  <form autocomplete="on" class="form-inline">
+    <button (click)="changeRealm()" class="btn btn-realm">
+      {{realm}}</button>
+    <input style="border-color: white; max-width: 300px" name="name" autofocus type="text" #name placeholder="Name..." class="form-control" />
+    <button (click)="onSearch(name.value)" class="btn btn-search">
+      <span class="fa fa-search"></span></button>
+  </form>
+</div>
 
 <div style="margin-top: 15vh"></div>
-
 
 
 
@@ -36,5 +20,3 @@
 <div style="min-height: 400px; padding-left: 10vw; padding-right: 10vw;" [hidden]="!chart">
   <canvas id="canvas">{{ chart }}</canvas>
 </div>
-
-

@@ -12,26 +12,31 @@ import {HttpClient} from "@angular/common/http";
 export class SearchComponent implements OnInit {
 
   readonly ROOT_URL = 'https://sunwell-back.herokuapp.com/online';
-  realm: string;
+
+  realm = "Feronis";
   onlineObs: any;
   chart: any;
 
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  onSearch(nameIn: string, realmIn: string) {
-    let nameCase = nameIn.charAt(0).toUpperCase() + nameIn.slice(1).toLowerCase();
-    let realmCase = realmIn.charAt(0).toUpperCase() + realmIn.slice(1).toLowerCase();
-    this.router.navigate(['/character', realmCase, nameCase])
+  onSearch(name, realm) {
+    let nameCase = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+    this.router.navigate(['/character', this.realm, nameCase])
+  }
+
+  changeRealm() {
+    if (this.realm == 'Feronis')
+      this.realm = 'Angrathar';
+    else this.realm = 'Feronis';
   }
 
   ngOnInit() {
     this.getOnline().subscribe(res => {
-      let feronisData = res.map(response => response.feronis)
-      let angratharData = res.map(response => response.angrathar)
-      let totalData = res.map(response => response.angrathar + response.feronis)
-      let datesData = res.map(response => new Date(response.date))
-      console.log(totalData);
+      let feronisData = res.map(response => response.feronis);
+      let angratharData = res.map(response => response.angrathar);
+      let totalData = res.map(response => response.angrathar + response.feronis);
+      let datesData = res.map(response => new Date(response.date));
       let formattedDates = [];
       datesData.forEach((res) => {
         let date = res.toLocaleTimeString('en-GB', {
@@ -50,7 +55,9 @@ export class SearchComponent implements OnInit {
 
       let data = {
         labels: formattedDates,
+
         datasets: [{
+          spanGaps: false,
           pointStyle: 'circle',
           label: 'Feronis',
           data: feronisData,
@@ -93,7 +100,7 @@ export class SearchComponent implements OnInit {
         },
         elements: {
           point: {
-            radius: 0,
+            radius: 1,
             hoverRadius: 5,
           }
         },
@@ -167,7 +174,7 @@ export class SearchComponent implements OnInit {
 
 
       this.chart = new Chart('canvas', {
-        type: 'line',
+        type: 'scatter',
         responsive: true,
         data: data,
         options: options

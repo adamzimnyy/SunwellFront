@@ -1,50 +1,51 @@
 <div class="fixed-top">
   <nav class="navbar">
-    <a class="navbar-brand" href="#"><span class="fa fa-arrow-left" style="font-size: 12pt; margin: 20px"></span><b>Sunwell Gearscore</b></a>
+    <a class="navbar-brand" href="#"><span class="fa fa-arrow-left" style="font-size: 12pt; margin: 20px"></span><b>Sunwell
+      Gearscore</b></a>
     <div class="flex-column"></div>
 
-  <!--  <form class="form-inline">
-      <div class="input-group input-group">
-        <input type="text" id="inputName" #name placeholder="Character name..." class="form-control">
-        <button (click)="character = null; onSearch(name.value);" class="btn">
-          <span class="fa fa-search"></span></button>
-      </div>
-    </form>-->
+    <!--  <form class="form-inline">
+        <div class="input-group input-group">
+          <input type="text" id="inputName" #name placeholder="Character name..." class="form-control">
+          <button (click)="character = null; onSearch(name.value);" class="btn">
+            <span class="fa fa-search"></span></button>
+        </div>
+      </form>-->
   </nav>
   <div *ngIf="isRefreshing" id="progress-bar" class="progress">
     <div class="indeterminate"></div>
   </div>
 </div>
 
-<main role="main" class="container text-center" >
+<main role="main" class="container text-center">
 
   <div *ngIf="character" class="container center">
     <div class="char-header">
-    <h1>{{character.name}}</h1>
+      <h1>{{character.name}}</h1>
 
-    <h2 *ngIf="character.info.includes('Druid')" class="druid">{{character.info}}</h2>
-    <h2 *ngIf="character.info.includes('Hunter')" class="hunter">{{character.info}}</h2>
-    <h2 *ngIf="character.info.includes('Warlock')" class="warlock">{{character.info}}</h2>
-    <h2 *ngIf="character.info.includes('Death Knight')" class="death-knight">{{character.info}}</h2>
-    <h2 *ngIf="character.info.includes('Paladin')" class="paladin">{{character.info}}</h2>
-    <h2 *ngIf="character.info.includes('Warrior')" class="warrior">{{character.info}}</h2>
-    <h2 *ngIf="character.info.includes('Mage')" class="mage">{{character.info}}</h2>
-    <h2 *ngIf="character.info.includes('Shaman')" class="shaman">{{character.info}}</h2>
-    <h2 *ngIf="character.info.includes('Rogue')" class="rogue">{{character.info}}</h2>
-    <h2 *ngIf="character.info.includes('Priest')" class="priest">{{character.info}}</h2>
-
+      <h2 *ngIf="character.info.includes('Druid')" class="druid">{{character.info}}</h2>
+      <h2 *ngIf="character.info.includes('Hunter')" class="hunter">{{character.info}}</h2>
+      <h2 *ngIf="character.info.includes('Warlock')" class="warlock">{{character.info}}</h2>
+      <h2 *ngIf="character.info.includes('Death Knight')" class="death-knight">{{character.info}}</h2>
+      <h2 *ngIf="character.info.includes('Paladin')" class="paladin">{{character.info}}</h2>
+      <h2 *ngIf="character.info.includes('Warrior')" class="warrior">{{character.info}}</h2>
+      <h2 *ngIf="character.info.includes('Mage')" class="mage">{{character.info}}</h2>
+      <h2 *ngIf="character.info.includes('Shaman')" class="shaman">{{character.info}}</h2>
+      <h2 *ngIf="character.info.includes('Rogue')" class="rogue">{{character.info}}</h2>
+      <h2 *ngIf="character.info.includes('Priest')" class="priest">{{character.info}}</h2>
 
       <h3 style="margin-top: 24px"><span style="color: #7c7c7c">Gearscore: </span>{{character.gearscore}}</h3>
-      <h5 ><span style="color: #7c7c7c">Item Level: </span>{{character.itemLevel}}</h5>
+      <h5><span style="color: #7c7c7c">Item Level: </span>{{character.itemLevel}}</h5>
     </div>
     <table style="margin: auto">
 
       <tbody *ngFor="let item of character?.items">
 
       <tr>
-        <td><img class="cardimage" *ngIf="item.icon" src="https://db.darkwizard.pl/static/images/wow/icons/large/{{item.icon}}.jpg"/></td>
+        <td><img class="cardimage" *ngIf="item.icon"
+                 src="https://db.darkwizard.pl/static/images/wow/icons/large/{{item.icon}}.jpg"/></td>
         <td class="card">
-          <div  ngSwitch="{{item.quality}}">
+          <div ngSwitch="{{item.quality}}">
             <a href="http://db.darkwizard.pl?item={{item.id}}" *ngSwitchCase="0" class="poor">{{item.name}}</a>
             <a href="http://db.darkwizard.pl?item={{item.id}}" *ngSwitchCase="1" class="common">{{item.name}}</a>
             <a href="http://db.darkwizard.pl?item={{item.id}}" *ngSwitchCase="2" class="uncommon">{{item.name}}</a>
@@ -63,13 +64,14 @@
   </div>
 
   <div class="text-center-info container"><h5>Informacja</h5>
-    Jeżeli postać nie wczytuje się w ciągu 2-3 sekund to jej danych nie ma w lokalnej bazie i muszą zostać pobrane ze strony Sunwella. Pobieranie trwa około 20 sekund. Postacie aktualizowane są maksymalnie raz na 6 godzin aby nie obciążać serwera.<br><br>Podany Gearscore może się nieznacznie różnić od wyświetlanego w grze.
+    Jeżeli postać nie wczytuje się w ciągu 2-3 sekund to jej danych nie ma w lokalnej bazie i muszą zostać pobrane ze
+    strony Sunwella. Pobieranie trwa około 20 sekund. Postacie aktualizowane są maksymalnie raz na 6 godzin aby nie
+    obciążać serwera.<br><br>Podany Gearscore może się nieznacznie różnić od wyświetlanego w grze.
   </div>
 
   <div style="padding-top: 100px"></div>
 
 </main>
-
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

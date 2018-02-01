@@ -58,9 +58,17 @@ body {
 .btn-search{
   background-color: #d65e0b;
   border-radius: 0 8px 8px 0;
-  width: 48px;
+ /* width: 4vw;
+  min-width: 48px;*/
   color: white;
 }
+
+.btn-realm{
+  background-color: #d65e0b;
+  border-radius:  8px 0  0 8px ;
+  color: white;
+}
+
 .btn.focus, .btn.active.focus, .btn.active.focus {
    outline: 0 none;
  }
@@ -87,10 +95,25 @@ body {
   border-radius:  8px 0 0 8px;
 }*/
 
+/*
 .form-control{
   -moz-border-radius:  5px 0 0 5px;
   border-radius:  5px 0 0 5px;
 }
+*/
+
+.form-control{
+  -moz-border-radius:  0;
+  border-radius:  0;
+}
+
+.input-group-text{
+  color: white;
+  background-color: #d65e0b;
+  border-color: #d65e0b;
+  text-shadow: none
+}
+
 
 
 .navbar{
