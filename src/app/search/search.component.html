@@ -4,17 +4,17 @@
 <h1 style="align-content: center" align="center">Gearscore</h1>
 <div style="width: 100%;align-items: center;margin:auto" class="container">
   <form autocomplete="on" class="form-inline">
-    <button (click)="changeRealm()" class="btn btn-realm">
+    <button type="button" (click)="changeRealm()" class="btn btn-realm">
       {{realm}}</button>
     <input style="border-color: white; max-width: 300px" name="name" autofocus type="text" #name placeholder="Name..." class="form-control" />
-    <button (click)="onSearch(name.value)" class="btn btn-search">
+    <button type="submit" (click)="onSearch(name.value)" class="btn btn-search">
       <span class="fa fa-search"></span></button>
   </form>
 </div>
 
 <div style="margin-top: 15vh"></div>
 
-
+<!--<span class="fa fa-cogs" style="margin-right: 6px"> </span>-->
 
 <h1 align="center">Players Online</h1>
 <div style="min-height: 400px; padding-left: 10vw; padding-right: 10vw;" [hidden]="!chart">
