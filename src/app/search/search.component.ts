@@ -50,6 +50,10 @@ export class SearchComponent implements OnInit {
         formattedDates.push(date)
       });
 
+
+      console.log(formattedDates);
+      console.log(feronisData);
+
       let colors = ['#5ba2df', '#e2ac00', '#59b110'
       ];
 
@@ -100,7 +104,7 @@ export class SearchComponent implements OnInit {
         },
         elements: {
           point: {
-            radius: 1,
+            radius: 0,
             hoverRadius: 5,
           }
         },
@@ -174,7 +178,7 @@ export class SearchComponent implements OnInit {
 
 
       this.chart = new Chart('canvas', {
-        type: 'scatter',
+        type: 'line',
         responsive: true,
         data: data,
         options: options
