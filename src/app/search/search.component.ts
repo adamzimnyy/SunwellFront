@@ -142,6 +142,7 @@ export class SearchComponent implements OnInit {
           xAxes: [{
             type: 'time',
             time: {
+              unit: 'day',
               displayFormats: {
                 'minute': 'HH:mm',
                 'hour': 'HH:mm',
@@ -152,12 +153,11 @@ export class SearchComponent implements OnInit {
             },
             display: true,
             ticks: {
-              /*  callback: function (value, index, values) {
-               return '';
-               }*/
+              fontColor: "#bbbbbb",
             },
             gridLines: {
-              drawOnChartArea: false,
+              color: "#555",
+              drawOnChartArea: true,
             }
           }],
           yAxes: [{
@@ -169,7 +169,6 @@ export class SearchComponent implements OnInit {
             },
             gridLines: {
               color: "#444444",
-
               drawOnChartArea: true,
             }
           }]
