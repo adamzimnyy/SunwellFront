@@ -177,7 +177,7 @@ export class SearchComponent implements OnInit {
 
 
       this.chart = new Chart('canvas', {
-        type: 'scatter',
+        type: 'line',
         responsive: true,
         data: data,
         options: options
