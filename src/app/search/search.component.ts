@@ -104,7 +104,7 @@ export class SearchComponent implements OnInit {
         },
         elements: {
           point: {
-            radius: 1,
+            radius: 0,
             hoverRadius: 5,
           }
         },
